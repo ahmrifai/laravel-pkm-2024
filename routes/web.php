@@ -29,5 +29,6 @@ Route::middleware('guest')
 
 Route::middleware('auth')
 ->group(function() {
+    Route::get('/home', [DashboardController::class, 'index'])->name('home');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
