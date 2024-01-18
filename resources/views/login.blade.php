@@ -7,6 +7,15 @@
                     <div class="text-center mb-11">
                         <h1 class="text-dark fw-bolder mb-3">Masuk</h1>
                     </div>
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
                     <div class="fv-row mb-8">
                         <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" />
                     </div>
