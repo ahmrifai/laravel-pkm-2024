@@ -22,7 +22,7 @@
             <!--begin:Menu item-->
             <div class="menu-item">
                 <!--begin:Menu link-->
-                <a class="menu-link active" href="https://preview.keenthemes.com/html/metronic/docs/base/utilities" target="_blank">
+                <a class="menu-link {{ Request::segment(1) == 'dashboard' ? 'active' : '' }}" href="{{ route('dashboard') }}">
                     <span class="menu-icon">
                         <i class="ki-outline ki-rocket fs-2"></i>
                     </span>
@@ -34,47 +34,11 @@
             <!--begin:Menu item-->
             <div class="menu-item">
                 <!--begin:Menu link-->
-                <a class="menu-link" href="https://preview.keenthemes.com/metronic8/demo13/layout-builder.html">
-                    <span class="menu-icon">
-                        <i class="ki-outline ki-user fs-2"></i>
-                    </span>
-                    <span class="menu-title">Master User</span>
-                </a>
-                <!--end:Menu link-->
-            </div>
-            <!--end:Menu item-->
-            <!--begin:Menu item-->
-            <div class="menu-item">
-                <!--begin:Menu link-->
-                <a class="menu-link" href="https://preview.keenthemes.com/html/metronic/docs" target="_blank">
+                <a class="menu-link {{ Request::segment(1) == 'items' ? 'active' : '' }}" href="{{ route('items.index') }}">
                     <span class="menu-icon">
                         <i class="ki-outline ki-abstract-26 fs-2"></i>
                     </span>
                     <span class="menu-title">Master Item</span>
-                </a>
-                <!--end:Menu link-->
-            </div>
-            <!--end:Menu item-->
-            <!--begin:Menu item-->
-            <div class="menu-item">
-                <!--begin:Menu link-->
-                <a class="menu-link" href="https://preview.keenthemes.com/html/metronic/docs/getting-started/changelog" target="_blank">
-                    <span class="menu-icon">
-                        <i class="ki-outline ki-code fs-2"></i>
-                    </span>
-                    <span class="menu-title">Peminjaman</span>
-                </a>
-                <!--end:Menu link-->
-            </div>
-            <!--end:Menu item-->
-            <!--begin:Menu item-->
-            <div class="menu-item">
-                <!--begin:Menu link-->
-                <a class="menu-link" href="https://preview.keenthemes.com/html/metronic/docs/getting-started/changelog" target="_blank">
-                    <span class="menu-icon">
-                        <i class="ki-outline ki-code fs-2"></i>
-                    </span>
-                    <span class="menu-title">Pengembalian</span>
                 </a>
                 <!--end:Menu link-->
             </div>

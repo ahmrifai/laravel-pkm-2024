@@ -11,7 +11,7 @@ class ItemController extends Controller
      */
     public function index()
     {
-        echo 'ini index item controller';
+        return view('cms.item.index');
     }
 
     /**
@@ -19,7 +19,7 @@ class ItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('cms.item.create');
     }
 
     /**
