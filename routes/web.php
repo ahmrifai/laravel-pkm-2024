@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,20 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/template', function () {
-    return view('layouts.theme');
-});
-
 Route::middleware('guest')
-->group(function() {
-    Route::get('/', [AuthController::class, 'login'])->name('login');
-    Route::get('/login', [AuthController::class, 'login'])->name('login');
-    Route::get('/authentication', [AuthController::class, 'authentication'])->name('authentication');
-    Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])->name('forgot-password');
-});
+    ->group(function () {
+        Route::get('/', [AuthController::class, 'login'])->name('login');
+        Route::get('/login', [AuthController::class, 'login'])->name('login');
+        Route::get('/authentication', [AuthController::class, 'authentication'])->name('authentication');
+        Route::get('/forgot-password', [AuthController::class, 'forgotPassword'])->name('forgot-password');
+    });
 
 Route::middleware('auth')
-->group(function() {
-    Route::get('/home', [DashboardController::class, 'index'])->name('home');
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-});
+    ->group(function () {
+        Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+        Route::get('/home', [DashboardController::class, 'index'])->name('home');
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        Route::resource('items', ItemController::class);
+    });

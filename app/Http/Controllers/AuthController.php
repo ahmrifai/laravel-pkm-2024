@@ -32,4 +32,11 @@ class AuthController extends Controller
             'email' => 'Akun yang anda masukan tidak cocok, silahkan cek kembali !',
         ])->onlyInput('email');
     }
+
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerate();
+        return redirect()->route('login')->withSuccess('Anda berhasil keluar!');
+    }
 }
