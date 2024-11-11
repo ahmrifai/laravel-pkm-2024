@@ -21,10 +21,13 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        DB::table('users')->insert([
-            'name' => 'Super Admin',
-            'email' => 'admin@dummy.com',
-            'password' => Hash::make('password'),
+        // DB::table('users')->insert([
+        //     'name' => 'Super Admin',
+        //     'email' => 'admin@dummy.com',
+        //     'password' => Hash::make('password'),
+        // ]);
+        $this->call([
+            ItemSeeder::class
         ]);
     }
 }
