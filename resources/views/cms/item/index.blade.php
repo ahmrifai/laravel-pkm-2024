@@ -1,35 +1,48 @@
 @extends('layouts.theme')
 @section('content')
-    <form class="form w-100" novalidate="novalidate" action="{{ route('authentication') }}">
-        <div class="text-center mb-11">
-            <h1 class="text-dark fw-bolder mb-3">Masuk</h1>
-        </div>
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
+    <div class="container-fluid bg-white">
+        <div class="row">
+            <div class="col-12">
+                <div class="d-flex justify-content-end pt-4">
+                    <a href="{{ route('items.create') }}" class="btn btn-success" style="border-radius: 20px">Tambah Data</a>
+                </div>
+                <div class="table-responsive">
+                    <table id="kt_datatable_zero_configuration" class="table table-row-bordered gy-5">
+                        <thead>
+                            <tr class="fw-semibold fs-6 text-muted">
+                                <th>Nama</th>
+                                <th>Tipe</th>
+                                <th>Kondisi</th>
+                                <th>Kuantitas</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($semuanya as $item)
+                                <tr>
+                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->type }}</td>
+                                    <td>{{ $item->condition }}</td>
+                                    <td>{{ $item->quantity }}</td>
+                                    <td>
+                                        <a class="btn btn-warning btn-sm" style="border-radius: 20px">Edit</a>
+                                        <a class="btn btn-danger btn-sm" style="border-radius: 20px">Hapus</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Nama</th>
+                                <th>Tipe</th>
+                                <th>Kondisi</th>
+                                <th>Kuantitas</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
-        @endif
-        <div class="fv-row mb-8">
-            <input type="text" placeholder="Email" name="email" autocomplete="off" class="form-control bg-transparent" />
         </div>
-        <div class="fv-row mb-3">
-            <input type="password" placeholder="Password" name="password" autocomplete="off"
-                class="form-control bg-transparent" />
-        </div>
-        <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
-            <div></div>
-            <a href="{{ route('forgot-password') }}" class="link-primary">Forgot Password ?</a>
-        </div>
-        <div class="d-grid mb-10">
-            <button type="submit" id="kt_sign_in_submit" class="btn btn-primary">
-                <span class="indicator-label">Sign In</span>
-                <span class="indicator-progress">Please wait...
-                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-            </button>
-        </div>
-    </form>
+    </div>
 @endsection
