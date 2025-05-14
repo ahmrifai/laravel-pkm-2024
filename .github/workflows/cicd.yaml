@@ -129,9 +129,13 @@ jobs:
           # Run deployment commands
           cd /var/www/laravel-app
           sudo -u www-data composer install --optimize-autoloader --no-dev
-          sudo -u www-data php artisan config:cache
-          sudo -u www-data php artisan route:cache
-          sudo -u www-data php artisan view:cache
+
+          # For Optimizing Laravel
+          # sudo -u www-data php artisan config:cache
+          # sudo -u www-data php artisan route:cache
+          # sudo -u www-data php artisan view:cache
+
+          # Run database migrations
           sudo -u www-data php artisan migrate --force
 
           # Restart services if needed
