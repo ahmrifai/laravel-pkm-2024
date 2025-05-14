@@ -31,7 +31,7 @@ jobs:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.2'
+        php-version: '8.3'
         extensions: mbstring, ctype, fileinfo, openssl, PDO, tokenizer, xml, pgsql, pdo_pgsql
         coverage: none
 
@@ -64,7 +64,7 @@ jobs:
         npm run prod
 
     - name: Upload artifact for deployment
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: laravel-app
         path: |
@@ -83,7 +83,7 @@ jobs:
 
     steps:
     - name: Download artifact
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: laravel-app
         path: ./deploy
